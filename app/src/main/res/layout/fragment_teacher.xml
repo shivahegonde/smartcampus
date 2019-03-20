@@ -83,7 +83,7 @@
                                 android:maxLines="1"
                                 android:textColor="@android:color/white"
                                 android:textSize="16sp"
-                                android:text="CMPN" />
+                                android:text="Computer" />
 
                         </LinearLayout>
 
@@ -132,7 +132,7 @@
                                 android:maxLines="1"
                                 android:textColor="@android:color/white"
                                 android:textSize="16sp"
-                                android:text="IT"/>
+                                android:text="Info Tech"/>
 
                         </LinearLayout>
 
@@ -296,7 +296,7 @@
                                 android:maxLines="1"
                                 android:textColor="@android:color/white"
                                 android:textSize="16sp"
-                                android:text="EXTC"/>
+                                android:text="ENTC"/>
 
                         </LinearLayout>
 
@@ -345,7 +345,7 @@
                                 android:maxLines="1"
                                 android:textColor="@android:color/white"
                                 android:textSize="16sp"
-                                android:text="ETRX"/>
+                                android:text="Extra Dept"/>
 
                         </LinearLayout>
 

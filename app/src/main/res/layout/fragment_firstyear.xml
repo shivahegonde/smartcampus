@@ -97,11 +97,11 @@
                        android:id="@+id/syallbus_mech"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
-                       android:padding="8dp"
                        android:layout_gravity="start"
-                       android:textSize="20sp"
-                       android:text="3. Mechanics"
-                       android:textColor="@android:color/black"/>
+                       android:padding="8dp"
+                       android:text="3. Engg Mechanics"
+                       android:textColor="@android:color/black"
+                       android:textSize="20sp" />
 
                    <TextView
                        android:id="@+id/syallbus_physics"
@@ -127,11 +127,11 @@
                        android:id="@+id/syallbus_evs"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
-                       android:padding="8dp"
                        android:layout_gravity="start"
-                       android:textSize="20sp"
-                       android:text="6. EVS"
-                       android:textColor="@android:color/black"/>
+                       android:padding="8dp"
+                       android:text="6. FPL 1"
+                       android:textColor="@android:color/black"
+                       android:textSize="20sp" />
 
                </LinearLayout>
 
@@ -188,11 +188,11 @@
                         android:id="@+id/syallbus_spa"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="8dp"
                         android:layout_gravity="start"
-                        android:textSize="20sp"
-                        android:text="2. SPA"
-                        android:textColor="@android:color/black"/>
+                        android:padding="8dp"
+                        android:text="2. FPL2"
+                        android:textColor="@android:color/black"
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/syallbus_ed"

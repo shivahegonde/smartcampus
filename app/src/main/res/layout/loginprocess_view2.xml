@@ -30,7 +30,7 @@
             android:orientation="horizontal"
             app:layout_widthPercent="85%">
 
-            <com.sssa.slrtce.misc.widgets.VerticalTextView
+            <com.sssa.jspm.misc.widgets.VerticalTextView
                 android:id="@+id/Forgot"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -58,7 +58,7 @@
             android:orientation="horizontal"
             app:layout_widthPercent="15%">
 
-            <com.sssa.slrtce.misc.widgets.VerticalTextView
+            <com.sssa.jspm.misc.widgets.VerticalTextView
                 android:id="@+id/Login"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

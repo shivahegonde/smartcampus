@@ -80,52 +80,52 @@
                         android:id="@+id/syallbus_dsp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="8dp"
                         android:layout_gravity="start"
-                        android:textSize="18sp"
-                        android:text="1. Dsp"
-                        android:textColor="@android:color/black"/>
+                        android:padding="8dp"
+                        android:text="1. DAA"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
 
 
                     <TextView
                         android:id="@+id/syallbus_mc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="8dp"
                         android:layout_gravity="start"
-                        android:textSize="18sp"
-                        android:text="2. Mc"
-                        android:textColor="@android:color/black"/>
+                        android:padding="8dp"
+                        android:text="2. ML"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/syallbus_pm"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="8dp"
                         android:layout_gravity="start"
-                        android:textSize="18sp"
-                        android:text="3. Pm"
-                        android:textColor="@android:color/black"/>
+                        android:padding="8dp"
+                        android:text="3. CS"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/syallbus_sc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="8dp"
                         android:layout_gravity="start"
-                        android:textSize="18sp"
-                        android:text="4. Sc"
-                        android:textColor="@android:color/black"/>
+                        android:padding="8dp"
+                        android:text="4. AIR"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
 
                     <TextView
                         android:id="@+id/syallbus_ss"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="8dp"
                         android:layout_gravity="start"
-                        android:textSize="18sp"
-                        android:text="5. SS"
-                        android:textColor="@android:color/black"/>
+                        android:padding="8dp"
+                        android:text="5. IOT"
+                        android:textColor="@android:color/black"
+                        android:textSize="18sp" />
 
                     <!--<TextView
                         android:id="@+id/syallbus_evs"
