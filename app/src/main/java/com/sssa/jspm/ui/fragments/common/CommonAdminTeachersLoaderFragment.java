@@ -1,17 +1,11 @@
 package com.sssa.jspm.ui.fragments.common;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -19,18 +13,16 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONArrayRequestListener;
-import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.sssa.jspm.R;
 import com.sssa.jspm.base.BaseFragment;
+import com.sssa.jspm.data.model.AdminResult;
 import com.sssa.jspm.data.model.GFMResult;
-import com.sssa.jspm.data.model.Result;
 import com.sssa.jspm.misc.utils.Constants;
 import com.sssa.jspm.misc.utils.Extras;
-import com.sssa.jspm.misc.utils.Helper;
 import com.sssa.jspm.misc.widgets.DividerItemDecoration;
 import com.sssa.jspm.ui.activities.MainActivity;
+import com.sssa.jspm.ui.adapters.AdminTeachersAdapter;
 import com.sssa.jspm.ui.adapters.GFMStudentsAdapter;
-import com.sssa.jspm.ui.adapters.SyllabusAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,18 +31,16 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.sssa.jspm.misc.utils.Helper.now;
-
 /**
  * Created by Shiv on 3/8/2017.
  */
 
-public class CommonGFMStudentsLoaderFragment extends BaseFragment {
+public class CommonAdminTeachersLoaderFragment extends BaseFragment {
 
     private Toolbar toolbar;
     private RecyclerView rv;
-    private GFMStudentsAdapter gfmStudentsAdapter;
-    private List<GFMResult> resultList;
+    private AdminTeachersAdapter adminTeachersAdapter;
+    private List<AdminResult> resultList;
     private static String toolbarTitle;
     private static String tableName;
     private Extras prefernces;
@@ -59,10 +49,10 @@ public class CommonGFMStudentsLoaderFragment extends BaseFragment {
     /**
      * Instance of this class
      */
-    public static CommonGFMStudentsLoaderFragment getInstance(String toolbarTitle, String tableName){
+    public static CommonAdminTeachersLoaderFragment getInstance(String toolbarTitle, String tableName){
         setToolbarTitle(toolbarTitle);
         setTableName(tableName);
-        return new CommonGFMStudentsLoaderFragment();
+        return new CommonAdminTeachersLoaderFragment();
     }
 
 
@@ -90,8 +80,8 @@ public class CommonGFMStudentsLoaderFragment extends BaseFragment {
         rv.setHasFixedSize(true);
         loadData();
         resultList = new ArrayList<>();
-        gfmStudentsAdapter = new GFMStudentsAdapter(context, resultList, getTableName());
-        rv.setAdapter(gfmStudentsAdapter);
+        adminTeachersAdapter = new AdminTeachersAdapter(context, resultList,getTableName());
+        rv.setAdapter(adminTeachersAdapter);
         MainActivity mainActivity = ((MainActivity) getActivity());
         if (toolbar != null) {
             mainActivity.setSupportActionBar(toolbar);
@@ -107,7 +97,7 @@ public class CommonGFMStudentsLoaderFragment extends BaseFragment {
 
     @Override
     protected Fragment setfragment() {
-        return CommonGFMStudentsLoaderFragment.getInstance(getToolbarTitle(),getTableName());
+        return CommonAdminTeachersLoaderFragment.getInstance(getToolbarTitle(),getTableName());
     }
 
     @Override
@@ -121,8 +111,8 @@ public class CommonGFMStudentsLoaderFragment extends BaseFragment {
      */
     private void loadData(){
         Toast.makeText(getContext(),"Inside GFM Load",Toast.LENGTH_SHORT).show();
-        AndroidNetworking.post(Constants.GFMDATA)
-                .addBodyParameter("tablename", "student")
+        AndroidNetworking.post(Constants.ADMINDATA)
+                .addBodyParameter("tablename", "teacher")
                 .setPriority(Priority.HIGH)
                 .setTag("get_result")
                 .build()
@@ -132,20 +122,20 @@ public class CommonGFMStudentsLoaderFragment extends BaseFragment {
                         if (response.length() > 0){
                             for (int i = 0; i < response.length(); i++) {
                                 JSONObject json;
-                                GFMResult result = new GFMResult();
+                                AdminResult result = new AdminResult();
                                 try {
                                     json = response.getJSONObject(i);
                                     result.setFullname(json.getString("fullname"));
                                     result.setId(json.getString("id"));
-                                    result.setgrno(json.getString("grno"));
+                                    result.setTeacherid(json.getString("grno"));
 //                                    Log.d("data", json.getString("id") +" "+ json.getString("fullname"));
                                     resultList.add(result);
-                                    gfmStudentsAdapter.addDataList(resultList);
+                                    adminTeachersAdapter.addDataList(resultList);
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }
                             }
-                            gfmStudentsAdapter.notifyDataSetChanged();
+                            adminTeachersAdapter.notifyDataSetChanged();
                         }
                     }
 

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Slrtce.iml" filepath="$PROJECT_DIR$/Slrtce.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Jspm.iml" filepath="$PROJECT_DIR$/Jspm.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -8,7 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import static com.sssa.jspm.misc.utils.Constants.ADMIN_LOGIN_TRACK;
 import static com.sssa.jspm.misc.utils.Constants.ATDATA;
+import static com.sssa.jspm.misc.utils.Constants.Admin_LOGIN;
 import static com.sssa.jspm.misc.utils.Constants.BRANCHCMPN;
 import static com.sssa.jspm.misc.utils.Constants.COMMONYR;
 import static com.sssa.jspm.misc.utils.Constants.COUNTER;
@@ -122,9 +124,23 @@ public class Extras {
         editor.putString(NTEACHER_LOGIN, nTeacher);
         editor.apply();
     }
+    /**
+     * Set NTeacher Values
+     * @param gfm
+     * */
     public void setGfm(String gfm){
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(GFM_LOGIN, gfm);
+        editor.apply();
+    }
+
+    /**
+     * Set NTeacher Values
+     * @param admin
+     * */
+    public void setAdmin(String admin){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString(Admin_LOGIN, admin);
         editor.apply();
     }
     /**
@@ -158,6 +174,13 @@ public class Extras {
     public String isGFM(){
         return sharedPreferences.getString(GFM_LOGIN, null);
     }
+    /**
+     * GFM
+     * @return
+     */
+    public String isAdmin(){
+        return sharedPreferences.getString(Admin_LOGIN, null);
+    }
 
     ///////////////////////////////// TRACKING PREF //////////////////////
 
@@ -190,11 +213,25 @@ public class Extras {
         editor.putBoolean(NTEACHER_LOGIN_TRACK, nTeacherTrack);
         editor.apply();
     }
-
+    /**
+     * Set NTeacher Values
+     * @param gfmTrack
+     */
 
     public void setGFMTrack(boolean gfmTrack){
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(GFM_LOGIN_TRACK, gfmTrack);
+        editor.apply();
+    }
+
+    /**
+     * Set NTeacher Values
+     * @param adminTrack
+     */
+
+    public void setAdminTrack(boolean adminTrack){
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean(ADMIN_LOGIN_TRACK, adminTrack);
         editor.apply();
     }
     /**
@@ -227,6 +264,15 @@ public class Extras {
 
     public boolean gfmTrack(){
         return sharedPreferences.getBoolean(GFM_LOGIN_TRACK, true);
+    }
+
+    /**
+     * GFM Track
+     * @return
+     */
+
+    public boolean adminTrack(){
+        return sharedPreferences.getBoolean(ADMIN_LOGIN_TRACK, true);
     }
 
 

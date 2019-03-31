@@ -19,6 +19,7 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.sssa.jspm.misc.utils.Constants;
 import com.sssa.jspm.misc.utils.Extras;
 import com.sssa.jspm.ui.activities.MainActivity;
+import com.sssa.jspm.ui.fragments.AdminFragment;
 import com.sssa.jspm.ui.fragments.GfmFragment;
 import com.sssa.jspm.ui.fragments.NonTeachFragment;
 import com.sssa.jspm.ui.fragments.StudentFragment;
@@ -288,6 +289,65 @@ public class loginAcc {
             }
         } else {
             Log.d("GFM", "empty GFM");
+        }
+        if (!TextUtils.isEmpty(prefernces.isAdmin())) {
+            Toast.makeText(context.getActivity(), "Admin Track "+prefernces.adminTrack()+" equals 14 "+prefernces.isAdmin().equals("14"), Toast.LENGTH_SHORT).show();
+            if ((prefernces.isAdmin().equals("12") ) && prefernces.adminTrack()) {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(context.getActivity(), "Admin Before N/w Call In", Toast.LENGTH_SHORT).show();
+                        AndroidNetworking.post(Constants.AdminLogin_URL)
+                                .addBodyParameter("username", username)
+                                .addBodyParameter("password", userpass)
+                                .addBodyParameter("adminid", userid)
+                                .setTag("post_login")
+                                .setPriority(Priority.HIGH)
+                                .build()
+                                .getAsJSONObject(new JSONObjectRequestListener() {
+
+                                    @Override
+                                    public void onResponse(JSONObject response) {
+                                        Toast.makeText(context.getActivity(), "Before error after n/w call", Toast.LENGTH_LONG).show();
+                                        inputview.gettext().getText().clear();
+                                        inputview2.gettext().getText().clear();
+                                        inputview3.gettext().getText().clear();
+                                        progressDialog.dismiss();
+                                        try {
+
+                                            boolean goterror = response.getBoolean("error");
+                                            JSONObject jsonObject = response.optJSONObject("user");
+                                            if (!goterror) {
+                                                Log.d("Login", "" + response); //response from json
+                                                Toast.makeText(context.getActivity(), "Logged In", Toast.LENGTH_LONG).show();
+                                                Log.d("Logged as :", jsonObject.optString("username"));//response from json
+                                                String username = jsonObject.optString("username");
+                                                extras.getExtras().setuserLogginSession(username, true);
+                                                int id = ((MainActivity) context.getActivity()).setContainerId();
+                                                context.getFragmentManager().beginTransaction().replace(id, AdminFragment.getInstance()).addToBackStack(null).commit();
+                                            } else {
+                                                progressDialog.dismiss();
+                                                String errorMsg = response.getString("error_msg");
+                                                Snackbar.make(view, errorMsg, Snackbar.LENGTH_LONG).setText(errorMsg).show();
+                                            }
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onError(ANError anError) {
+                                        Log.d("Login", "Failed");
+                                        anError.printStackTrace();
+                                    }
+                                });
+                    }
+                }, 200);
+                prefernces.setAdmin("13");
+                Log.d("ADMIN", "LoginPage");
+            }
+        } else {
+            Log.d("ADMIN", "empty GFM");
         }
 
 

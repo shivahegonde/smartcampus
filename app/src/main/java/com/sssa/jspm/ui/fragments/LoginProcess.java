@@ -46,7 +46,7 @@ public class LoginProcess extends BaseFragment {
         twitter=(ImageView)rootview.findViewById(R.id.twitter);
         web=(ImageView)rootview.findViewById(R.id.web);
         gfm=(ImageView)rootview.findViewById(R.id.gfm);
-        admin=(ImageView)rootview.findViewById(R.id.admin);
+        admin=(ImageView)rootview.findViewById(R.id.adminlogin);
     }
 
     @Override
@@ -145,6 +145,7 @@ public class LoginProcess extends BaseFragment {
                     prefernces.setNTeacherTrack(false);
                     prefernces.setGFMTrack(false);
                     prefernces.setTeacherTrack(false);
+                    prefernces.setAdminTrack(false);
                     break;
 
                 case R.id.teacherlogin:
@@ -154,6 +155,7 @@ public class LoginProcess extends BaseFragment {
                     prefernces.setStudentTrack(false);
                     prefernces.setNTeacherTrack(false);
                     prefernces.setGFMTrack(false);
+                    prefernces.setAdminTrack(false);
                     prefernces.setTeacherTrack(true);
                     break;
 
@@ -165,6 +167,7 @@ public class LoginProcess extends BaseFragment {
                     prefernces.setGFMTrack(false);
                     prefernces.setNTeacherTrack(true);
                     prefernces.setTeacherTrack(false);
+                    prefernces.setAdminTrack(false);
                     break;
 
                 case R.id.gfm:
@@ -173,7 +176,17 @@ public class LoginProcess extends BaseFragment {
                     prefernces.setGfm("9");
                     prefernces.setStudentTrack(false);
                     prefernces.setGFMTrack(true);
-
+                    prefernces.setAdminTrack(false);
+                    prefernces.setNTeacherTrack(false);
+                    prefernces.setTeacherTrack(false);
+                    break;
+                case R.id.adminlogin:
+                    FrgamentLoader();
+                    //save prefences
+                    prefernces.setAdmin("12");
+                    prefernces.setStudentTrack(false);
+                    prefernces.setGFMTrack(false);
+                    prefernces.setAdminTrack(true);
                     prefernces.setNTeacherTrack(false);
                     prefernces.setTeacherTrack(false);
                     break;

@@ -77,6 +77,7 @@ public class CommonFragment extends BaseFragment {
                     prefernces.setTeacher("5");
                     prefernces.setNTeacher("8");
                     prefernces.setGfm("11");
+                    prefernces.setAdmin("14");
                     break;
 
                 case R.id.Login:

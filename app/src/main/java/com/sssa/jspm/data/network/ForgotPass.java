@@ -219,7 +219,7 @@ public class ForgotPass {
                                 .addBodyParameter("password", userpass)
                                 .addBodyParameter("confirmpassword", confirmpass)
                                 .setPriority(Priority.MEDIUM)
-                                .setTag("forgot_passStudent")
+                                .setTag("forgot_passGfm")
                                 .build()
                                 .getAsJSONObject(new JSONObjectRequestListener() {
                                     @Override
@@ -257,6 +257,56 @@ public class ForgotPass {
             prefernces.setGfm("9");
         }else {
             Log.d("ForgotPass", "failed_GFM");
+        }
+        if (!TextUtils.isEmpty(prefernces.isAdmin())){
+            if (prefernces.isAdmin().equals("19") && prefernces.adminTrack()) {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        AndroidNetworking.post(Constants.FORGOTPASSADMIN)
+                                .addBodyParameter("username", username)
+                                .addBodyParameter("adminid", userid)
+                                .addBodyParameter("password", userpass)
+                                .addBodyParameter("confirmpassword", confirmpass)
+                                .setPriority(Priority.MEDIUM)
+                                .setTag("forgot_passAdmin")
+                                .build()
+                                .getAsJSONObject(new JSONObjectRequestListener() {
+                                    @Override
+                                    public void onResponse(JSONObject response) {
+                                        inputview.gettext().getText().clear();
+                                        inputview2.gettext().getText().clear();
+                                        inputview3.gettext().getText().clear();
+                                        inputview4.gettext().getText().clear();
+                                        try {
+                                            boolean goterror = response.getBoolean("error");
+                                            if (!goterror) {
+                                                Log.d("Forgot", "" + response);
+                                                String confirm = response.getString("password");
+                                                progressDialog.dismiss();
+                                                Snackbar.make(view, confirm, Snackbar.LENGTH_LONG).setText(confirm).show();
+                                            } else {
+                                                String errorMsg = response.getString("error_msg");
+                                                progressDialog.dismiss();
+                                                Snackbar.make(view, errorMsg, Snackbar.LENGTH_LONG).setText(errorMsg).show();
+                                            }
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }
+
+                                    @Override
+                                    public void onError(ANError anError) {
+                                        Log.d("ForgotPass", "Failed");
+                                        anError.printStackTrace();
+                                    }
+                                });
+                    }
+                }, 500);
+            }
+            prefernces.setAdmin("12");
+        }else {
+            Log.d("ForgotPass", "failed_ADMIN");
         }
     }
 }

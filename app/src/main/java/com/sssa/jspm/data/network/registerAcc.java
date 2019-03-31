@@ -267,5 +267,60 @@ public class registerAcc {
         }else {
             Log.d("GFM Register", "Empty");
         }
+
+        if (!TextUtils.isEmpty(prefrences.isAdmin())) {
+            if (prefrences.isAdmin().equals("14") && prefrences.adminTrack()){
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(context,"Inside Admin",Toast.LENGTH_SHORT).show();
+                        AndroidNetworking.post(Constants.AdminRegisterUrl)
+                                .addBodyParameter("fullname", fullName)
+                                .addBodyParameter("username", username)
+                                .addBodyParameter("email", usermail)
+                                .addBodyParameter("password", userpass)
+                                .addBodyParameter("confirmpassword", confirmpass)
+                                .setTag("post_registeradmin")
+                                .setPriority(Priority.HIGH)
+                                .build()
+                                .getAsJSONObject(new JSONObjectRequestListener() {
+                                    @Override
+                                    public void onResponse(JSONObject response) {
+                                        inputview.gettext().getText().clear();
+                                        inputview2.gettext().getText().clear();
+                                        inputview3.gettext().getText().clear();
+                                        inputview4.gettext().getText().clear();
+                                        inputview5.gettext().getText().clear();
+                                        progressDialog.dismiss();
+                                        Toast.makeText(context,"In Response ADMIN",Toast.LENGTH_LONG).show();
+                                        try {
+                                            boolean goterror = response.getBoolean("error");
+                                            if (!goterror){
+                                                Log.d("SignUp", "success"+response.toString());
+                                                String msg = "Verification code is sent on your email";
+                                                Snackbar.make(view, msg, Snackbar.LENGTH_LONG).setText(msg).show();
+                                                Log.d("Admin", "Register Success");
+                                            }else {
+                                                String error_msg = response.getString("error_msg");
+                                                progressDialog.dismiss();
+                                                Snackbar.make(view, error_msg, Snackbar.LENGTH_LONG).setText(error_msg).show();
+                                            }
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+
+                                    }
+
+                                    @Override
+                                    public void onError(ANError anError) {
+
+                                    }
+                                });
+                    }
+                },200);
+            }
+        }else {
+            Log.d("ADMIN Register", "Empty");
+        }
     }
 }

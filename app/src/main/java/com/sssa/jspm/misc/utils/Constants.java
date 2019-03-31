@@ -26,11 +26,14 @@ public class Constants {
 
     public static final String NTRegisterUrl = "http://192.168.1.101/smartcampus/nontregister.php";
     public static final String GFMRegisterUrl = "http://192.168.1.101/smartcampus/gfmregister.php";
+    public static final String AdminRegisterUrl = "http://192.168.1.101/smartcampus/adminregister.php";
     public static final String NTLoginUrl = "http://192.168.1.101/smartcampus/nontlogin.php";
     public static final String GFMLogin_URL = "http://192.168.1.101/smartcampus/gfmlogin.php";
+    public static final String AdminLogin_URL = "http://192.168.1.101/smartcampus/adminlogin.php";
 
     public static final String SYLLABUSDATA = "http://192.168.1.101/smartcampus/syllabus/syllabusTeacher.php";
     public static final String GFMDATA = "http://192.168.1.101/smartcampus/gfm/loadStudent.php";
+    public static final String ADMINDATA = "http://192.168.1.101/smartcampus/gfm/loadTeachers.php";
 
     public static final String SAVINGSYLLABUS = "http://192.168.1.101/smartcampus/syllabus/saveSyllabus.php";
     public static final String UNSAVINGSYLLABUS = "http://192.168.1.101/smartcampus/syllabus/unsaveSyllabus.php";
@@ -58,6 +61,7 @@ public class Constants {
     public static final String FORGOTPASSNT = "http://192.168.1.101/smartcampus/forgotpasswordnt.php";
 
     public static final String FORGOTPASSGFM = "http://192.168.1.101/smartcampus/forgotpasswordgfm.php";
+    public static final String FORGOTPASSADMIN = "http://192.168.1.101/smartcampus/forgotpasswordadmin.php";
 
 
     public static final String TAKEATTENDANCE = "http://192.168.1.101/smartcampus/attendance/insertAttendance.php";
@@ -74,7 +78,9 @@ public class Constants {
     public static final String TEACHER_LOGIN = "teacherlogin";
     public static final String NTEACHER_LOGIN = "nteacherlogin";
     public static final String GFM_LOGIN = "gfmlogin";
+    public static final String Admin_LOGIN = "adminlogin";
     public static final String GFM_LOGIN_TRACK = "gfmtrack";
+    public static final String ADMIN_LOGIN_TRACK = "admintrack";
     public static final String STUDENT_LOGIN_TRACK = "strack";
     public static final String TEACHER_LOGIN_TRACK = "ttrack";
     public static final String NTEACHER_LOGIN_TRACK = "nttrack";

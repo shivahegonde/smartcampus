@@ -55,7 +55,7 @@
                     app:cardElevation="@dimen/elevation">
 
                     <ImageView
-                        android:id="@+id/gfmbatch"
+                        android:id="@+id/teachers"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
@@ -81,7 +81,7 @@
                                 android:layout_height="wrap_content"
                                 android:ellipsize="end"
                                 android:maxLines="1"
-                                android:text="View Students"
+                                android:text="View Teachers"
                                 android:textColor="@android:color/white"
                                 android:textSize="16sp" />
 
@@ -104,7 +104,7 @@
                     app:cardElevation="@dimen/elevation">
 
                     <ImageView
-                        android:id="@+id/sendmsg"
+                        android:id="@+id/sendmsgs"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_gravity="center"
@@ -130,7 +130,7 @@
                                 android:layout_height="wrap_content"
                                 android:ellipsize="end"
                                 android:maxLines="1"
-                                android:text="Message Student"
+                                android:text="Message Teacher"
                                 android:textColor="@android:color/white"
                                 android:textSize="16sp" />
 
@@ -188,7 +188,7 @@
                                 android:layout_height="wrap_content"
                                 android:ellipsize="end"
                                 android:maxLines="1"
-                                android:text="Fee Status"
+                                android:text="Assign Class"
                                 android:textColor="@android:color/white"
                                 android:textSize="16sp" />
 

@@ -119,7 +119,10 @@ public class LoginFragment extends BaseFragment {
                                 prefernces.setNTeacher("11");
                             }
                             if (prefernces.gfmTrack()){
-                                prefernces.setGfm("12");
+//                                prefernces.setGfm("12");
+                            }
+                            if (prefernces.adminTrack()){
+                                prefernces.setAdmin("12");
                             }
                         }
                     });
