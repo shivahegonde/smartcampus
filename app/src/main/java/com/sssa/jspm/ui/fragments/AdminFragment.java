@@ -33,7 +33,7 @@ public class AdminFragment extends BaseFragment implements NavigationView.OnNavi
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
     private Extras preferences;
-    private ImageView teachers, sendmsgs;
+    private ImageView teachers, sendmsgs,assignSubject,assignTeacher,assignYear,assignClass;
     private ActionBarDrawerToggle barDrawerToggle;
     private TextView userName;
     private View navigationHeader;
@@ -58,6 +58,10 @@ public class AdminFragment extends BaseFragment implements NavigationView.OnNavi
         navigationView = (NavigationView) rootview.findViewById(R.id.navigation_view);
         drawerLayout = (DrawerLayout) rootview.findViewById(R.id.drawerLayout);
         teachers = (ImageView) rootview.findViewById(R.id.teachers);
+        assignClass = (ImageView) rootview.findViewById(R.id.assignclass);
+        assignSubject = (ImageView) rootview.findViewById(R.id.assignsubject);
+        assignTeacher = (ImageView) rootview.findViewById(R.id.assignteacher);
+        assignYear = (ImageView) rootview.findViewById(R.id.assignyear);
         sendmsgs = (ImageView) rootview.findViewById(R.id.sendmsgs);
         navigationHeader = navigationView.inflateHeaderView(R.layout.navigation_headerview);
         userName = (TextView) navigationHeader.findViewById(R.id.userName);
@@ -83,6 +87,10 @@ public class AdminFragment extends BaseFragment implements NavigationView.OnNavi
         preferences = new Extras(getContext());
         sendmsgs.setOnClickListener(onClick);
         teachers.setOnClickListener(onClick);
+        assignYear.setOnClickListener(onClick);
+        assignTeacher.setOnClickListener(onClick);
+        assignClass.setOnClickListener(onClick);
+        assignSubject.setOnClickListener(onClick);
 
         if (userName != null){
             userName.setText(preferences.getUserName());
@@ -108,6 +116,12 @@ public class AdminFragment extends BaseFragment implements NavigationView.OnNavi
 //                    fragmentLoaders(CommonYrFragment.getInstance("CMPN"));
                     fragmentLoaders(SendMessage.getInstances("Send Message To Teacher"));
                     break;
+                case R.id.assignsubject:
+                    fragmentLoaders(AssignSubject.getInstances("Assign Subject"));
+                    break;
+                case R.id.assignyear:
+                fragmentLoaders(AssignYear.getInstances("Assign Year"));
+                break;
 
 
             }

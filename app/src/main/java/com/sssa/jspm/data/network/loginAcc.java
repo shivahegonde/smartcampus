@@ -292,11 +292,14 @@ public class loginAcc {
         }
         if (!TextUtils.isEmpty(prefernces.isAdmin())) {
             Toast.makeText(context.getActivity(), "Admin Track "+prefernces.adminTrack()+" equals 14 "+prefernces.isAdmin().equals("14"), Toast.LENGTH_SHORT).show();
-            if ((prefernces.isAdmin().equals("12") ) && prefernces.adminTrack()) {
+            if ((prefernces.isAdmin().equals("12") || prefernces.isAdmin().equals("14"))&& prefernces.adminTrack()) {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
                         Toast.makeText(context.getActivity(), "Admin Before N/w Call In", Toast.LENGTH_SHORT).show();
+                        progressDialog.dismiss();
+                        int id = ((MainActivity) context.getActivity()).setContainerId();
+                        context.getFragmentManager().beginTransaction().replace(id, AdminFragment.getInstance()).addToBackStack(null).commit();
                         AndroidNetworking.post(Constants.AdminLogin_URL)
                                 .addBodyParameter("username", username)
                                 .addBodyParameter("password", userpass)

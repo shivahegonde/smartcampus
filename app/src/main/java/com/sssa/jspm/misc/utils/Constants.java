@@ -58,6 +58,9 @@ public class Constants {
     public static final String GFMFILEVIEWS = "http://192.168.1.101/smartcampus/getuploadedgfm.php";
 
     public static final String FORGOTPASS = "http://192.168.1.101/smartcampus/forgotpassword.php";
+    public static final String ASSIGNYEAR = "http://192.168.1.101/smartcampus/admin/assignyear.php";
+    public static final String ASSIGNSUBJECT = "http://192.168.1.101/smartcampus/admin/assignsubject.php";
+    public static final String ASSIGNDEPT = "http://192.168.1.101/smartcampus/admin/assigndept.php";
 
     public static final String FORGOTPASST = "http://192.168.1.101/smartcampus/forgotpasswordt.php";
 

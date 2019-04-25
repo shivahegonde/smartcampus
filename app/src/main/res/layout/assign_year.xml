@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/stoolbar"
+            app:title="Assign Year"
+            android:layout_width="match_parent"
+            app:titleTextColor="#ffffff"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="top"
+            android:elevation="@dimen/elevation"
+            app:contentInsetStart="16dp"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:id="@+id/signup_layout">
+
+
+            <!-- FullName Label -->
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColorHint="#A9A9A9"
+                android:layout_marginBottom="4dp">
+
+                <android.support.design.widget.TextInputEditText android:id="@+id/username"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:textColor="#000000"
+                    android:maxLines="1"
+                    android:textSize="16sp"
+                    android:hint="USERNAME" />
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/year_input">
+
+
+            </Spinner>
+
+
+
+
+            <!-- Signup Button -->
+            <android.support.v7.widget.AppCompatButton
+                android:id="@+id/set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginBottom="16dp"
+                android:background="@drawable/button_bg"
+                android:textColor="@android:color/white"
+                android:padding="16dp"
+                android:layout_gravity="center"
+                android:text="SET"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
