@@ -137,6 +137,10 @@ public class CommonFragment extends BaseFragment {
         getFragmentManager().beginTransaction().replace(R.id.signup_container, SignupFragement.getInstance(true)).commit();
     }
 
+    private void studentSignupFragmentLoader(){
+        getFragmentManager().beginTransaction().replace(R.id.signup_container, StudSignupFragement.getInstance(true)).commit();
+    }
+
 
     private void loginFragmentLoader(){
         getFragmentManager().beginTransaction().replace(R.id.login_container, LoginFragment.getInstance(true, true)).commit();

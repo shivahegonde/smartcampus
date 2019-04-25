@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -22,6 +23,8 @@ import com.sssa.jspm.misc.utils.Extras;
 import com.sssa.jspm.ui.GFMFragment;
 import com.sssa.jspm.ui.activities.AboutActivity;
 import com.sssa.jspm.ui.activities.MainActivity;
+import com.sssa.jspm.ui.fragments.common.CommonGFMStudentsLoaderFragment;
+import com.sssa.jspm.ui.fragments.common.CommonGFMStudentsLoaderFragmentFees;
 import com.sssa.jspm.ui.fragments.common.CommonYrFragment;
 
 /**
@@ -35,9 +38,10 @@ public class GfmFragment extends BaseFragment implements NavigationView.OnNaviga
     private NavigationView navigationView;
     private DrawerLayout drawerLayout;
     private Extras preferences;
-    private ImageView gfmbatch, sendmsg;
+    private ImageView gfmbatch, sendmsg,notices,fees;
     private ActionBarDrawerToggle barDrawerToggle;
     private TextView userName;
+    public static String gfmName=null;
     private View navigationHeader;
 
     /**
@@ -61,8 +65,11 @@ public class GfmFragment extends BaseFragment implements NavigationView.OnNaviga
         drawerLayout = (DrawerLayout) rootview.findViewById(R.id.drawerLayout);
         gfmbatch = (ImageView) rootview.findViewById(R.id.gfmbatch);
         sendmsg = (ImageView) rootview.findViewById(R.id.sendmsg);
+        notices = (ImageView) rootview.findViewById(R.id.notification);
+        fees =(ImageView)rootview.findViewById(R.id.fees);
         navigationHeader = navigationView.inflateHeaderView(R.layout.navigation_headerview);
         userName = (TextView) navigationHeader.findViewById(R.id.userName);
+
     }
 
     @Override
@@ -85,9 +92,12 @@ public class GfmFragment extends BaseFragment implements NavigationView.OnNaviga
         preferences = new Extras(getContext());
         sendmsg.setOnClickListener(onClick);
         gfmbatch.setOnClickListener(onClick);
+        notices.setOnClickListener(onClick);
+        fees.setOnClickListener(onClick);
 
         if (userName != null){
             userName.setText(preferences.getUserName());
+            gfmName=preferences.getUserName();
         }
 
 //        Glide.with(getContext())
@@ -122,7 +132,8 @@ public class GfmFragment extends BaseFragment implements NavigationView.OnNaviga
                 case R.id.gfmbatch:
 //                    preferences.branchCmpn("cmpn");
 //                    fragmentLoaders(CommonYrFragment.getInstance("CMPN"));
-                    fragmentLoaders(GFMFragment.getInstance("GFM"));
+//                    fragmentLoaders(GFMFragment.getInstance("GFM"));
+                    fragmentLoaders(CommonGFMStudentsLoaderFragment.getInstance("Students", "student"));
                     break;
 
                 case R.id.sendmsg:
@@ -130,8 +141,13 @@ public class GfmFragment extends BaseFragment implements NavigationView.OnNaviga
 //                    fragmentLoaders(CommonYrFragment.getInstance("CMPN"));
                     fragmentLoaders(SendMessage.getInstances("Send Message"));
                     break;
-
-
+                case R.id.notification:
+                    fragmentLoaders(GFMUploadFragment.getInstance(false, true));
+                    break;
+                case R.id.fees:
+                    Toast.makeText(getContext(),"Inside FeeStatus",Toast.LENGTH_LONG).show();
+                    fragmentLoaders(CommonGFMStudentsLoaderFragmentFees.getInstance("Fee Remaining","student"));
+                    break;
             }
 
         }

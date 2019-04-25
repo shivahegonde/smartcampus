@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
                                                  xmlns:app="http://schemas.android.com/apk/res-auto"
-                                                 android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
                                                  android:layout_width="match_parent"
                                                  android:fitsSystemWindows="true"
                                                  android:layout_height="match_parent">
@@ -20,11 +21,11 @@
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
-                android:elevation="@dimen/elevation"
                 android:layout_gravity="top"
+                android:elevation="@dimen/elevation"
                 app:contentInsetStart="16dp"
                 app:layout_scrollFlags="scroll|enterAlways|snap"
-                app:popupTheme="@style/AppTheme.PopupOverlay"/>
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
 
         </android.support.design.widget.AppBarLayout>
 
@@ -36,40 +37,40 @@
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_height="445dp"
+                android:layout_margin="4dp"
                 android:layout_marginBottom="4dp"
-                android:layout_margin="4dp">
+                android:layout_weight="1">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
+                    android:layout_height="200dp"
                     android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="vertical"
                     android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:gravity="center">
+                    android:paddingBottom="10dp">
 
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:scaleType="centerCrop"
                         android:adjustViewBounds="true"
                         android:padding="15dp"
-                        android:src="@mipmap/ic_launcher"/>
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/ic_launcher" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="@string/app_name"
-                        android:textSize="24sp"
                         android:layout_marginTop="4dp"
+                        android:gravity="center"
                         android:paddingTop="4dp"
                         android:paddingBottom="4dp"
-                        android:textColor="@android:color/black"/>
+                        android:text="@string/app_name"
+                        android:textColor="@android:color/black"
+                        android:textSize="24sp" />
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
@@ -77,9 +78,9 @@
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_margin="4dp"
                 android:layout_marginBottom="4dp"
-                android:layout_margin="4dp">
+                android:layout_weight="1">
 
 
                 <RelativeLayout
@@ -91,21 +92,21 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:gravity="center_vertical"
-                        android:text="Developed by :"
-                        android:textSize="24sp"
                         android:layout_marginStart="4dp"
                         android:layout_marginTop="4dp"
+                        android:gravity="center_vertical"
                         android:paddingTop="4dp"
                         android:paddingBottom="4dp"
-                        android:textColor="@android:color/black"/>
+                        android:text="Developed by :"
+                        android:textColor="@android:color/black"
+                        android:textSize="24sp" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:layout_below="@+id/Developer"
                         android:orientation="vertical"
                         android:paddingTop="4dp"
-                        android:layout_below="@+id/Developer"
                         android:paddingBottom="10dp">
 
 
@@ -113,50 +114,81 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_marginTop="4dp"
                             android:gravity="center"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
                             android:text="1. Shivkumar Hegonde"
-                            android:textSize="20sp"
-                            android:layout_marginTop="4dp"
-                            android:paddingTop="4dp"
-                            android:paddingBottom="4dp"
-                            android:textColor="@android:color/black"/>
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp" />
 
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_marginTop="4dp"
                             android:gravity="center"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
                             android:text="2. Shyam Ambilkar"
-                            android:textSize="20sp"
-                            android:layout_marginTop="4dp"
-                            android:paddingTop="4dp"
-                            android:paddingBottom="4dp"
-                            android:textColor="@android:color/black"/>
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
+                            android:layout_marginTop="4dp"
                             android:gravity="center"
+                            android:paddingTop="4dp"
+                            android:paddingBottom="4dp"
                             android:text="3. Surbhi Lingamvar"
-                            android:textSize="20sp"
-                            android:layout_marginTop="4dp"
-                            android:paddingTop="4dp"
-                            android:paddingBottom="4dp"
-                            android:textColor="@android:color/black"/>
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
-                            android:gravity="center"
-                            android:text="4. Rutuja Therade"
-                            android:textSize="20sp"
                             android:layout_marginTop="4dp"
+                            android:gravity="center"
                             android:paddingTop="4dp"
                             android:paddingBottom="4dp"
-                            android:textColor="@android:color/black"/>
+                            android:text="4. Rutuja Therade"
+                            android:textColor="@android:color/black"
+                            android:textSize="20sp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/imageView2"
+                                android:layout_width="92dp"
+                                android:layout_height="match_parent"
+                                app:srcCompat="@drawable/shiv" />
+
+                            <ImageView
+                                android:id="@+id/imageView3"
+                                android:layout_width="99dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/shiv" />
+
+                            <ImageView
+                                android:id="@+id/imageView4"
+                                android:layout_width="97dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                app:srcCompat="@drawable/shiv" />
+
+                            <ImageView
+                                android:id="@+id/imageView"
+                                android:layout_width="94dp"
+                                android:layout_height="125dp"
+                                app:srcCompat="@drawable/shiv" />
+                        </LinearLayout>
 
                     </LinearLayout>
 

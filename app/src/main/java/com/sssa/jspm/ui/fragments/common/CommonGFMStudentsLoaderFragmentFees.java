@@ -1,17 +1,11 @@
 package com.sssa.jspm.ui.fragments.common;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -19,18 +13,14 @@ import com.androidnetworking.AndroidNetworking;
 import com.androidnetworking.common.Priority;
 import com.androidnetworking.error.ANError;
 import com.androidnetworking.interfaces.JSONArrayRequestListener;
-import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import com.sssa.jspm.R;
 import com.sssa.jspm.base.BaseFragment;
 import com.sssa.jspm.data.model.GFMResult;
-import com.sssa.jspm.data.model.Result;
 import com.sssa.jspm.misc.utils.Constants;
 import com.sssa.jspm.misc.utils.Extras;
-import com.sssa.jspm.misc.utils.Helper;
 import com.sssa.jspm.misc.widgets.DividerItemDecoration;
 import com.sssa.jspm.ui.activities.MainActivity;
 import com.sssa.jspm.ui.adapters.GFMStudentsAdapter;
-import com.sssa.jspm.ui.adapters.SyllabusAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,13 +29,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.sssa.jspm.misc.utils.Helper.now;
-
 /**
  * Created by Shiv on 3/8/2017.
  */
 
-public class CommonGFMStudentsLoaderFragment extends BaseFragment {
+public class CommonGFMStudentsLoaderFragmentFees extends BaseFragment {
 
     private Toolbar toolbar;
     private RecyclerView rv;
@@ -60,10 +48,10 @@ public class CommonGFMStudentsLoaderFragment extends BaseFragment {
     /**
      * Instance of this class
      */
-    public static CommonGFMStudentsLoaderFragment getInstance(String toolbarTitle, String tableName){
+    public static CommonGFMStudentsLoaderFragmentFees getInstance(String toolbarTitle, String tableName){
         setToolbarTitle(toolbarTitle);
         setTableName(tableName);
-        return new CommonGFMStudentsLoaderFragment();
+        return new CommonGFMStudentsLoaderFragmentFees();
     }
 
 
@@ -108,7 +96,7 @@ public class CommonGFMStudentsLoaderFragment extends BaseFragment {
 
     @Override
     protected Fragment setfragment() {
-        return CommonGFMStudentsLoaderFragment.getInstance(getToolbarTitle(),getTableName());
+        return CommonGFMStudentsLoaderFragmentFees.getInstance(getToolbarTitle(),getTableName());
     }
 
     @Override
@@ -122,7 +110,7 @@ public class CommonGFMStudentsLoaderFragment extends BaseFragment {
      */
     private void loadData(){
         Toast.makeText(getContext(),"Inside GFM Load",Toast.LENGTH_SHORT).show();
-        AndroidNetworking.post(Constants.GFMDATA)
+        AndroidNetworking.post(Constants.FEEDATA)
                 .addBodyParameter("tablename", "student")
                 .addBodyParameter("gfmname", prefernces.getUserName())
                 .setPriority(Priority.HIGH)

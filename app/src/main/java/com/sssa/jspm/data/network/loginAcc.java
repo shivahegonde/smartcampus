@@ -305,7 +305,6 @@ public class loginAcc {
                                 .setPriority(Priority.HIGH)
                                 .build()
                                 .getAsJSONObject(new JSONObjectRequestListener() {
-
                                     @Override
                                     public void onResponse(JSONObject response) {
                                         Toast.makeText(context.getActivity(), "Before error after n/w call", Toast.LENGTH_LONG).show();

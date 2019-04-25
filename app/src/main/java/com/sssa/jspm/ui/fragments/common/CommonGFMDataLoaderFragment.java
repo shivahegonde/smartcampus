@@ -110,7 +110,7 @@ public class CommonGFMDataLoaderFragment extends BaseFragment {
                                     result.setFullname(json.getString("fullname"));
                                     result.setId(String.valueOf(i+1));
                                     result.setgrno(json.getString("grno"));
-                                    String data="Name is "+result.getFullname()+" ID NO "+result.getId()+" GR No "+result.getgrno();
+                                    String data="Name is "+result.getFullname()+" ID NO "+result.getId()+" GR No "+result.get_pending_fees();
                                     Toast.makeText(getContext(),data,Toast.LENGTH_SHORT).show();
                                     Log.d("fespa", json.getString("id") +" "+ json.getString("chaptername"));
                                     resultList.add(result);

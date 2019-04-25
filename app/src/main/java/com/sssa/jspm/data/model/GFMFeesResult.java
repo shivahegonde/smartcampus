@@ -5,7 +5,7 @@ package com.sssa.jspm.data.model;
  */
 
 
-public class GFMResult {
+public class GFMFeesResult {
 
     private String id;
     private String fullname;

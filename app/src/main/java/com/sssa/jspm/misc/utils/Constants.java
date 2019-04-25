@@ -33,6 +33,7 @@ public class Constants {
 
     public static final String SYLLABUSDATA = "http://192.168.1.101/smartcampus/syllabus/syllabusTeacher.php";
     public static final String GFMDATA = "http://192.168.1.101/smartcampus/gfm/loadStudent.php";
+    public static final String FEEDATA = "http://192.168.1.101/smartcampus/gfm/loadStudentFees.php";
     public static final String ADMINDATA = "http://192.168.1.101/smartcampus/gfm/loadTeachers.php";
 
     public static final String SAVINGSYLLABUS = "http://192.168.1.101/smartcampus/syllabus/saveSyllabus.php";
@@ -50,9 +51,11 @@ public class Constants {
     public static final String CIVILUPLOAD = "http://192.168.1.101/smartcampus/civilupload.php";
 
     public static final String UPLOADFILESG = "http://192.168.1.101/smartcampus/gupload.php";
+    public static final String UPLOADGFMFILESG = "http://192.168.1.101/smartcampus/gfmupload.php";
 
     public static final String FILEVIEWS = "http://192.168.1.101/smartcampus/getuploaded.php";
     public static final String FILEVIEWS2 = "http://192.168.1.101/smartcampus/getuploadedg.php";
+    public static final String GFMFILEVIEWS = "http://192.168.1.101/smartcampus/getuploadedgfm.php";
 
     public static final String FORGOTPASS = "http://192.168.1.101/smartcampus/forgotpassword.php";
 
